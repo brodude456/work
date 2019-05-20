@@ -1,0 +1,205 @@
+import random
+from copy import deepcopy
+
+kinds=["hearts","diomands","clubs","spades"]
+special=["J","Q","K","A"]
+cards=[]
+for i in range(2,11):
+     for x in kinds:
+        card=(i,x)
+        cards.append(card)
+
+for i in range(0,2):
+     for x in special:
+        speciall=((special.index(x)+1)*10,x)
+        cards.append(speciall)
+
+deck= deepcopy(cards)
+
+random.shuffle(cards)
+
+player1=[]
+player2=[]
+
+#for i in range(0,len(cards)):
+    #print(cards[i])
+
+
+while len(cards)>1:
+
+
+    if len(player1)>1:
+        for z in range(0,len(player1)-1):
+            player1_input=input('do you want to remove a card if yes say yes if no say no')
+            while player1_input!="yes" and player1_input!="no":
+                player1_input=input("please enter a new shit brtt this aiiiiiiiint valiiiiiiid")
+            if player1_input=="no":
+                break
+            else:
+                player1_input=int(input("which card you want to remove niBBa"))
+                while player1_input>len(player1):
+                    player1_input=int(input("enter again niBBa cause you dont even fricking have-this card tich biBB"))
+                randomm=random.choice(cards)
+                while cards.index(randomm)==0:
+                    randomm=random.choice(cards)
+                z=cards.index(randomm)
+                cards.append(randomm)
+                cards[z]=player1_input
+                player1.remove(player1[player1_input-1])
+
+
+    player1_input=int(input("which card do you want to show NiBBa one"))
+
+    while player1_input>len(cards)-1:
+       player1_input=int(input("try again"))
+
+
+    if len(player2)>1:
+        for z in range(0,len(player2)-1):
+            player2_input=input('do you want to remove a card if yes say yes if no say no')
+            while player2_input!="yes" and player2_input!="no":
+                player2_input=input("please enter a new shit brtt this aiiiiiiiint valiiiiiiid")
+            if player2_input=="no":
+                break
+            else:
+                player2_input=int(input("which card you want to remove niBBa"))
+                while player2_input>len(player2):
+                    player2_input=int(input("enter again niBBa cause you dont even fricking have-this card tich biBB"))
+                randomm=random.choice(cards)
+                while cards.index(randomm)==0:
+                    randomm=random.choice(cards)
+                z=cards.index(randomm)
+                cards.append(randomm)
+                cards[z]=player2_input
+                player2.remove(player2[player2_input-1])
+
+
+
+    player2_input=int(input("which card do youwant to play NiBBa two"))
+
+    while player2_input>len(cards)-1 or player2_input==player1_input==len(cards)-1:
+        player2_input=int(input("which card do you want to play"))
+
+    if player2_input==player1_input:
+        player2_input=player2_input+1
+
+    letters=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    letters.reverse()
+    c=0
+    d=0
+
+    for i in letters:
+        if i==cards[player1_input][1][0].lower():
+            c=letters.index(i)
+        if i==cards[player2_input][1][0].lower():
+            d=letters.index(i)
+
+    c=c+cards[player1_input][0]
+    d=d+cards[player2_input][0]
+
+    if c>d:
+
+        player1.append(cards[player2_input])
+        player1.append(cards[player1_input])
+        if player1_input>player2_input:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+        else:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+    if c<d:
+
+        player2.append(cards[player2_input])
+        player2.append(cards[player1_input])
+        if player1_input>player2_input:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+        else:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+
+    elif c==d:
+
+        player1.append(cards[player1_input])
+        player2.append(cards[player2_input])
+        if player1_input>player2_input:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+        else:
+            cards.remove(cards[player2_input])
+            cards.remove(cards[player1_input-1])
+
+    print(player1)
+    print(player2)
+
+    a=0
+    b=0
+
+    for i in player1:
+        a+=i[0]
+        for x in letters:
+            if x==i[1][0].lower():
+                a+=letters.index(x)
+                break
+
+
+    for i in player2:
+        b+=i[0]
+        for x in letters:
+            if x==i[1][0].lower():
+                b+=letters.index(x)
+                break
+
+
+    if a>208 and b>208:
+        print("its a tie")
+    elif a>208 and b<208:
+        print("player2 wone")
+    elif a<208 and b>208:
+        print("player 1 wone")
+
+    else:
+        continue
+    break
+
+    if a>200:
+        print('player one wone')
+        break
+    elif b>200:
+        print("player two wone")
+
+a=0
+b=0
+
+for i in player1:
+    a+=i[0]
+    for x in letters:
+        if x==i[1][0].lower():
+            a+=letters.index(x)
+            break
+
+
+for i in player2:
+
+    b+=i[0]
+
+    for x in letters:
+
+        if x==i[1][0].lower():
+            b+=letters.index(x)
+            break
+
+
+if a<=500 and b<=500 and a!=200 and b<200 and a<200:
+
+    if a>b:
+        print("player1 wone")
+    elif b>a:
+        print("player2 wone")
+    else:
+        print("its a tie")
+
+print('byeeee')
+
+
+

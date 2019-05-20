@@ -1,0 +1,48 @@
+#pitati nastavnika zasto nije ovdje greaska iako bih trebalo da bude
+import random
+
+MIN_NUMBER = 1
+MAX_NUMBER = 100
+
+print("Choose a fricking numero between ", MIN_NUMBER, " und ", MAX_NUMBER)
+
+
+counter = 0
+while True:
+    bruh=False
+
+    geuss = (MIN_NUMBER + MAX_NUMBER) // 2
+
+    answer = input("is your numero grater(g) than or lower(l) than  or equal(e) to my fricking geuss " + str(geuss))
+
+    counter += 1
+
+    if answer.lower() == "l":
+            MAX_NUMBER = geuss
+    elif answer.lower() == "g":
+            MIN_NUMBER = geuss
+    elif answer.lower() == "e":
+            print("ha ha geussed it ")
+            bruh=True
+    else:
+            counter -= 1
+            print('this is not a valid choice try again')
+
+    answer_return=input('do you want to reapet')
+
+    if answer_return.lower()=='yes':
+        if MAX_NUMBER==geuss:
+            MAX_NUMBER=MAX_NUMBER+(MAX_NUMBER-MIN_NUMBER)
+        elif MIN_NUMBER==geuss:
+            MIN_NUMBER=MIN_NUMBER-(MAX_NUMBER-MIN_NUMBER)
+        else:
+            continue
+    elif bruh==True:
+        break
+
+    else:
+        continue
+
+print("I guessed your number in ",counter,"many steps.")
+
+

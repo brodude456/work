@@ -1,0 +1,17 @@
+kombi_=["A","B","C","D","E","F"]
+kombi=["A","B","C","D","E","F"]
+k=[]
+for i in kombi:
+    kombi.remove(i)
+    for x in kombi:
+        kombi.remove(x)
+        break
+    for y in kombi:
+        k.append(i)
+        k.append(x)
+        k.append(y)
+        break
+    print(k)
+    kombi=kombi_
+
+
