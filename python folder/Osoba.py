@@ -9,13 +9,13 @@ class Osoba:
         return self.__name+", "+str(self.__age)
 
 
-    @property
-    def age(self):
+    @property #decorators
+    def age(self): #getter
         return self.__age
 
 
     @age.setter
-    def age(self,age):
+    def age(self,age):#setter
         if age<0 or age>150:
             print("Greska!")
             return False
@@ -30,7 +30,7 @@ fatih = Osoba("Fatih",12)
 fahro = Osoba("Fahro",30)
 print(fatih)
 
-fatih.age = 99
+fatih.age = -5
 
 x = fatih.age
 print(x)

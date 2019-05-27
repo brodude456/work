@@ -1,8 +1,11 @@
 board=[[":_:",":_:",":_:",":_:",":_:",":_:",":_:"],[":_:",":_:",":_:",":_:",":_:",":_:",":_:"],[":_:",":_:",":_:",":_:",":_:",":_:",":_:"],[":_:",":_:",":_:",":_:",":_:",":_:",":_:"],[":_:",":_:",":_:",":_:",":_:",":_:",":_:"],[":_:",":_:",":_:",":_:",":_:",":_:",":_:"]]
 broj_kolona=7
 broj_redova=6
-list_of_4=[]
-for j in range(3,broj_kolona):
-    for i in range(broj_redova-3):
-        list_of_4.append([i,i+1,i+2,i+3,j,j-1,j-2,j-3])
-print(list_of_4)
+
+board = []
+for i in range(broj_redova):
+        board.append([':_:']*broj_kolona)
+
+
+for row in board:
+        print(row)
