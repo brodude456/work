@@ -2,7 +2,7 @@ import random
 import copy
 
 class Card():
-
+ 
     def init(self,number,couler):
 
         self.number=number
@@ -10,232 +10,234 @@ class Card():
 
     def show_card(self):
 
-        print (self.numerber , self.couler,end(","))
+        print (self.number , self.couler,end =",")
 
 specal_cards=[Card(50,"Draw_four"),Card(20,"Draw_two")]
 
-class Deck():
+# for special_card in specal_cards: special_card.show_card()
 
-    def init(self):
+# class Deck():
 
-        self.cards=[]
-        self.cards_rc=[]
+#     def init(self):
 
-    def give_cards(self,how_much,player):
-        if len(self.cards)<how_much:
-                self.recycle_cards
+#         self.cards=[]
+#         self.cards_rc=[]
 
-        for i in range(how_much):
-            player.cards.append(self.cards[0])
-            self.cards.remove(self.cards[0])
+#     def give_cards(self,how_much,player):
+#         if len(self.cards)<how_much:
+#                 self.recycle_cards
 
-    def recycle_cards(self):
+#         for i in range(how_much):
+#             player.cards.append(self.cards[0])
+#             self.cards.remove(self.cards[0])
 
-        if not(len(self.cards)<1):
+#     def recycle_cards(self):
 
-            cards_toad=[self.cards_rc[0:len(self.cards_rc)-len(self.cards)]]
+#         if not(len(self.cards)<1):
 
-        elif len(self.cards)<1:
+#             cards_toad=[self.cards_rc[0:len(self.cards_rc)-len(self.cards)]]
 
-             cards_toad=[self.cards_rc[0:len(self.cards_rc)-1]]
+#         elif len(self.cards)<1:
 
-        cards_toad.shuffle
+#              cards_toad=[self.cards_rc[0:len(self.cards_rc)-1]]
 
-        for i in cards_toad:
+#         cards_toad.shuffle
 
-            self.cards.append(i)
-            self.cards_rc.remove(i)
+#         for i in cards_toad:
 
+#             self.cards.append(i)
+#             self.cards_rc.remove(i)
 
-    def shufle(slef):
 
-        self.cards.shuffle
+#     def shufle(slef):
 
-    def show_rc(self):
+#         self.cards.shuffle
 
-        self.cards_rc[-1].show_card
+#     def show_rc(self):
 
-    def restart(self,How_much,players):
+#         self.cards_rc[-1].show_card
 
-        for i in self.cards_rc:
-            self.cards.append(i)
-            self.cards_rc.remove(i)
+#     def restart(self,How_much,players):
 
-        self.shuffle
-        for i in players:
-            self.give_cards(How_much,i)
+#         for i in self.cards_rc:
+#             self.cards.append(i)
+#             self.cards_rc.remove(i)
 
-        for i in range(1):
-            selfcards_rc.append(self.cards[0])
-            self.cars.remove(self.cards[0])
+#         self.shuffle
+#         for i in players:
+#             self.give_cards(How_much,i)
 
-class Player():
+#         for i in range(1):
+#             selfcards_rc.append(self.cards[0])
+#             self.cars.remove(self.cards[0])
 
-    def init(self,name):
+# class Player():
 
-        self.name=name
-        self.cards=[]
-        self.wins=0
+#     def init(self,name):
 
-    def play(self):
+#         self.name=name
+#         self.cards=[]
+#         self.wins=0
 
-        playing_card=input("which card do you want to play your cards are:")
+#     def play(self):
 
-        for i in self.cards:
-            i.show_card
+#         playing_card=input("which card do you want to play your cards are:")
 
-        numero,color=playing_card.split("-" if "-" in playing_card "," else)
-        while Card(numero,color) not in self.cards or numero!=deck_object.cards_rc[-1].number and color!=deck_object.cards_rc[-1].color or numero==50 and color=="Draw four" and i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color for i in self.cards:
+#         for i in self.cards:
+#             i.show_card
 
-            playing_card=input("thats invalid please try again niBBa")
-            numero,color=playing_card.split("-" if "-" in playing_card "," else)
+#         numero,color=playing_card.split("-" if "-" in playing_card "," else)
+#         while Card(numero,color) not in self.cards or numero!=deck_object.cards_rc[-1].number and color!=deck_object.cards_rc[-1].color or numero==50 and color=="Draw four" and i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color for i in self.cards:
 
-            if couler=="Chosee_color":
-                numero=50
-            couler=input("whidh couler do you want to choose")
-            while couler not in ["red","yellow","green","blue"]:
-                couler=input("whidt couler do you want to choose")
+#             playing_card=input("thats invalid please try again niBBa")
+#             numero,color=playing_card.split("-" if "-" in playing_card "," else)
 
-        deck_object.cards_rc.append(Card(numero,color))
-        self.cards.remove(Card(numero,color))
+#             if couler=="Chosee_color":
+#                 numero=50
+#             couler=input("whidh couler do you want to choose")
+#             while couler not in ["red","yellow","green","blue"]:
+#                 couler=input("whidt couler do you want to choose")
 
-    def  play_card(self,deck_object):
+#         deck_object.cards_rc.append(Card(numero,color))
+#         self.cards.remove(Card(numero,color))
 
-        print(self.name)
-        if deck_object.cards_rc[-1] not in specal_cards:
+#     def  play_card(self,deck_object):
 
-            if i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color or i in specal_cards or i.color=="Choose couler" for i in self.cards :
+#         print(self.name)
+#         if deck_object.cards_rc[-1] not in specal_cards:
 
-                self.play()
+#             if i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color or i in specal_cards or i.color=="Choose couler" for i in self.cards :
 
-            elif i.number!=deck_object.cards_rc[-1].number and i.color!=deck_object.cards_rc[-1].color for i in self.cards :
+#                 self.play()
 
-                print("you have no maching card so you need to draw 2 cards:)")
-                deck_object.give_cards(2,self)
+#             elif i.number!=deck_object.cards_rc[-1].number and i.color!=deck_object.cards_rc[-1].color for i in self.cards :
 
-                if i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color or i in specal_cards for i in self.cards :
+#                 print("you have no maching card so you need to draw 2 cards:)")
+#                 deck_object.give_cards(2,self)
 
-                    self.play()
+#                 if i.number==deck_object.cards_rc[-1].number or i.color==deck_object.cards_rc[-1].color or i in specal_cards for i in self.cards :
 
-        elif deck_object.cards_rc[-1]==Card(50,"Draw_four") or deck_object.cards_rc[-1]==Card(50,"Draw_two"):
+#                     self.play()
 
-            if Card(50,"Draw_four") not in self.cards and Card(50,"Draw_two") not in self.cards:
+#         elif deck_object.cards_rc[-1]==Card(50,"Draw_four") or deck_object.cards_rc[-1]==Card(50,"Draw_two"):
 
-                w=0
+#             if Card(50,"Draw_four") not in self.cards and Card(50,"Draw_two") not in self.cards:
 
-                for i in range(len(deck_object.cards_rc)-1,-1,-1):
+#                 w=0
 
-                    if deck_object.cards_rc[i]==Card(50,"Draw_four"):
+#                 for i in range(len(deck_object.cards_rc)-1,-1,-1):
 
-                        w+=4
+#                     if deck_object.cards_rc[i]==Card(50,"Draw_four"):
 
-                    elif deck_object.cards_rc[i]==Card(50,"Draw_two"):
+#                         w+=4
 
-                        w+=2
+#                     elif deck_object.cards_rc[i]==Card(50,"Draw_two"):
 
-                    elif deck_object.cards_rc[i]!=Card(50,"Draw_four") and deck_object.cards_rc!=Card(50,"Draw_two"):
+#                         w+=2
 
-                        break
+#                     elif deck_object.cards_rc[i]!=Card(50,"Draw_four") and deck_object.cards_rc!=Card(50,"Draw_two"):
 
-                print("now you need to pull"+str(w)+"many cards because you dont have a draw card to counter your oppponent(OOoof)")
+#                         break
 
-                deck_object.give_cards(w,self)
+#                 print("now you need to pull"+str(w)+"many cards because you dont have a draw card to counter your oppponent(OOoof)")
 
-            else:
+#                 deck_object.give_cards(w,self)
 
-                playing_card=input("which card do you want to play your cards are:")
+#             else:
 
-                for i in self.cards:
-                    i.show_card
+#                 playing_card=input("which card do you want to play your cards are:")
 
-                numero,color=playing_card.split("-" if "-" in playing_card "," else)
-                while Card(numero,color) not in self.cards or couler!="Draw_four" and couler!="Draw_two":
+#                 for i in self.cards:
+#                     i.show_card
 
-                    playing_card=input("thats invalid please try again niBBa")
-                    numero,color=playing_card.split("-" if "-" in playing_card "," else)
+#                 numero,color=playing_card.split("-" if "-" in playing_card "," else)
+#                 while Card(numero,color) not in self.cards or couler!="Draw_four" and couler!="Draw_two":
 
-                deck_object.cards_rc.append(Card(numero,color))
-                self.cards.remove(Card(numero,color))
+#                     playing_card=input("thats invalid please try again niBBa")
+#                     numero,color=playing_card.split("-" if "-" in playing_card "," else)
 
-deck=Deck()
+#                 deck_object.cards_rc.append(Card(numero,color))
+#                 self.cards.remove(Card(numero,color))
 
-coulers=["red","blue","yellow","green"]
-for i in range(1,10):
-    for j in coulers:
-        deck.cards.append(Card(i,j))
+# deck=Deck()
 
-special_but_less=["skip","reverse"]
+# coulers=["red","blue","yellow","green"]
+# for i in range(1,10):
+#     for j in coulers:
+#         deck.cards.append(Card(i,j))
 
-for i in special_but_less:
-    for j in coulers:
-        deck.cards.append(Card(i,j))
+# special_but_less=["skip","reverse"]
 
+# for i in special_but_less:
+#     for j in coulers:
+#         deck.cards.append(Card(i,j))
 
-reapet_hmmm="yes"
 
-while reapet_hmmm.lower()=="yes":
+# reapet_hmmm="yes"
 
-    players=[]
+# while reapet_hmmm.lower()=="yes":
 
-    input111=int(input("how many players you want"))
+#     players=[]
 
-    for i in range(input111):
+#     input111=int(input("how many players you want"))
 
-        input222=input("whats your"+str(i)+"player name gonna be")
-        players.append(Player(input222))
+#     for i in range(input111):
 
-    indexx=0
+#         input222=input("whats your"+str(i)+"player name gonna be")
+#         players.append(Player(input222))
 
-    deck.restart(7,players)
+#     indexx=0
 
-    while True:
+#     deck.restart(7,players)
 
-        deck.show_rc
-        players[indexx].play_card(deck)
+#     while True:
 
-        if not(players[indexx].cards):
+#         deck.show_rc
+#         players[indexx].play_card(deck)
 
-            print(players[indexx].name+"won")
+#         if not(players[indexx].cards):
 
-            break
+#             print(players[indexx].name+"won")
 
-        elif len(players[indexx].cards)==1:
+#             break
 
-            print("uno for player"+players[indexx].name)
+#         elif len(players[indexx].cards)==1:
 
-        if indexx==len(cards)-1:
+#             print("uno for player"+players[indexx].name)
 
-            indexx=-1
+#         if indexx==len(cards)-1:
 
-        if deck.cards_rc[-1].number=="Skipp":
+#             indexx=-1
 
-            indexx+=2
+#         if deck.cards_rc[-1].number=="Skipp":
 
-        elif deck.cards_rc[-1].number=="Reverse":
+#             indexx+=2
 
-            players[0:indexx],players[indexx:-1]=players[indexx:-1].Reverse,players[0:indexx].Reverse
+#         elif deck.cards_rc[-1].number=="Reverse":
 
-            indexx+=1
+#             players[0:indexx],players[indexx:-1]=players[indexx:-1].Reverse,players[0:indexx].Reverse
 
-        else:
+#             indexx+=1
 
-            indexx+=1
+#         else:
 
-        if not(i.cards) for i in players:
+#             indexx+=1
 
-            i.wins+=1
+#         if not(i.cards) for i in players:
 
-            print("player"+i.name+"won this round")
+#             i.wins+=1
 
-            break
+#             print("player"+i.name+"won this round")
 
+#             break
 
-    reapet_hmmm=input("do you want to reapet (hmmmmmmm:))")
 
-    while reapet_hmmm.lower()!="yes" or input1111.lower()!="no":
+#     reapet_hmmm=input("do you want to reapet (hmmmmmmm:))")
 
+#     while reapet_hmmm.lower()!="yes" or input1111.lower()!="no":
 
-        reapet_hmmm=input("do you want to reapet (hmmmmm:()")
+
+#         reapet_hmmm=input("do you want to reapet (hmmmmm:()")
 
 
 
