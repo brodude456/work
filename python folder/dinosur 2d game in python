@@ -1,0 +1,181 @@
+import pygame
+import random
+import sys
+from copy import deepcopy
+red=(255,0,0)
+
+pygame.init()
+
+height=600
+withd=800
+
+screen=pygame.display.set_mode((withd,height))
+some_color=(100,255,255)
+
+class Player():
+
+    def __init__(self):
+
+        self.x=200
+        self.y=300
+
+        self.playerposition=[self.x,self.y]
+        self.playerwitdh=50
+        self.playerheight=50
+
+        self.starting_adding_speed=-10
+        #the speed it adds at the start of the jump#reson for doing is because the jump speed shall change later on simulating the effect ot the gracity
+        self.speed_to_add_generaly=0
+        self.make_jump_deafualt_again()
+
+        self.score=0
+
+    def show(self,screen):
+
+        pygame.draw.rect(screen,red,(self.x,self.y,self.playerwitdh,self.playerheight))
+
+    def jump_or_fall_possibly(self,counter):
+
+        self.y+=self.speed_to_add_generaly
+        self.speed_to_add_generaly+=1
+
+        if self.y>=300 and self.speed_to_add_generaly>0:
+
+            self.y=300
+            self.make_jump_deafualt_again()
+            self.score+=1
+            if counter-counter//2*2==0:
+                obstacle.make_the_move_faster()
+
+            return False
+
+        elif self.y>obstacle.y-self.playerheight and self.x>obstacle.x-self.playerwitdh and self.x<obstacle.x+obstacle.playerwitdh:
+
+            self.y=300
+            self.score=0
+            self.make_jump_deafualt_again()
+            obstacle.restart()
+            obstacle.make_jump_deafualt_again()
+
+            return False
+
+        return True
+
+    def make_jump_deafualt_again(self):
+
+        self.speed_to_add_generaly=deepcopy(self.starting_adding_speed)
+
+    def show_score(self):
+
+        print(self.score)
+
+player=Player()
+
+class Obstacle():
+
+    def __init__(self):
+
+        self.playerwitdh=30
+        self.playerheight=60
+
+        self.starting_adding_speed=-10
+        self.adding_speed=0
+
+        #the moving spped will increase and thats why we have two variables for spped to be able to restart the main one which wil effect the speed
+
+        self.make_jump_deafualt_again()
+        self.increase_move_by=10
+        self.x=withd-self.playerwitdh
+        self.y=player.y+player.playerheight-self.playerheight
+        self.playerposition=[self.x,self.y]
+
+    def show(self,screen):
+
+        pygame.draw.rect(screen,some_color,(self.x,self.y,self.playerwitdh,self.playerheight))
+
+    def move(self):
+
+        self.x+=self.adding_speed
+
+    def make_jump_deafualt_again(self):
+
+        self.adding_speed=self.starting_adding_speed
+
+    def make_the_move_faster(self):
+
+
+        if self.adding_speed>-20:
+
+            self.adding_speed-=self.increase_move_by
+
+    def small_down_the_speed_increaser(self):
+
+        self.increase_move_by=self.increase_move_by*0.75
+        self.increase_move_by=self.increase_move_by//1
+
+    def restart(self):
+
+        self.x=withd-self.playerwitdh
+
+    def check_if_restart_and_do_so_if_needed(self):
+
+        if self.x<=self.playerwitdh:
+
+            self.restart()
+
+counter=0
+
+obstacle=Obstacle()
+
+gmae_looping=True
+
+BRUUH=pygame.mixer.Sound("Bruh Sound Effect 2.wav")
+
+to_jump=False
+
+while gmae_looping==True:
+
+    player.show(screen)
+    obstacle.show(screen)
+
+    obstacle.move()
+
+    keys=pygame.key.get_pressed()
+    pygame.key.set_repeat()
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            do_main = False
+
+    if keys[pygame.K_SPACE] :
+
+        pygame.mixer.Sound.play(BRUUH)
+
+        counter+=1
+
+        to_jump=True
+
+    elif player.y>obstacle.y-player.playerheight and player.x>obstacle.x-player.playerwitdh and player.x<obstacle.x+obstacle.playerwitdh:
+
+        player.score=0
+        obstacle.restart()
+        obstacle.make_jump_deafualt_again()
+
+    elif keys[pygame.K_ESCAPE]:
+
+        pygame.mixer.Sound.play(BRUUH)
+        break
+
+    if to_jump==True:
+
+        to_jump=player.jump_or_fall_possibly(counter)
+
+    player.show_score()
+
+    pygame.display.update()
+
+    obstacle.check_if_restart_and_do_so_if_needed()
+
+
+
+pygame.quit()
